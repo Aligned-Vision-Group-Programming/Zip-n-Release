@@ -6,7 +6,6 @@ inputs:
   Filename: 
     description: 'Name of the ZipFile'
     required: true
-    default: 'Test'
 
 #outputs:
 #  RepoName: 
@@ -18,18 +17,25 @@ runs:
 
   steps:
   - uses: actions/checkout@v3
+  
+  - name: GetSplit - Repo
+    uses: rishabhgupta/split-by@v1
+    id: RepoName
+    with:
+      string: "${{ inputs.Filename }}"
+      split-by: "/"
 
-#  - name: Archive Release
-#    uses: thedoctor0/zip-release@master
-#    with:
-#      filename: ".github/${{ inputs.Filename }}"
-#      path: "./Module/"
-#      exclusions: '*.git* .env .github/Workflows/*'
+- name: GetSplit - Tag
+    uses: rishabhgupta/split-by@v1
+    id: TagName
+    with:
+      string: "${{ inputs.Filename }}"
+      split-by: "/"
 
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
-      name: "${{ inputs.Filename }}"
+      name: "${{ steps.RepoName.outputs._1 }}.${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/Module/**"
 
 
