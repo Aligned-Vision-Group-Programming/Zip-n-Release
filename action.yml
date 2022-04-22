@@ -22,15 +22,15 @@ runs:
   - name: Archive Release
     uses: thedoctor0/zip-release@master
     with:
-      filename: ".upload/${{ inputs.Filename }}"
+      filename: ".github/${{ inputs.Filename }}"
       path: "./Module/"
-      exclusions: '*.git* .env .github*'
+      exclusions: '*.git* .env .github/Workflows/*'
 
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
       name: "${{ inputs.Filename }}"
-      path: "${{ github.workspace }}/.upload"
+      path: "${{ github.workspace }}/.github"
 
 
 # - uses: ncipollo/release-action
