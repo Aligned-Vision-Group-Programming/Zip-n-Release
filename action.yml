@@ -24,7 +24,7 @@ runs:
     with:
       filename: ".github/${{ inputs.Filename }}"
       path: "./Module/"
-      exclusions: '*.git* .env *.github/*'
+      exclusions: '*.git* .env .github*'
 
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
