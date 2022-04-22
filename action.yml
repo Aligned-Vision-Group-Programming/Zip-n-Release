@@ -42,7 +42,9 @@ runs:
     with:
       name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/Module/**"
-  - uses: actions/download-artifact@v3
+  
+  - name: Download Artifact
+    uses: actions/download-artifact@v3
     with:
       name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
   
