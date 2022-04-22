@@ -4,11 +4,11 @@ description: 'Take info from repo and make useable names from it.'
 
 inputs:
   RepoPath: 
-    description: 'Repo name'
+    description: 'Repo info'
     required: true
     default: "${{ github.repository }}"
   Tag: 
-    description: 'Name of the ZipFile'
+    description: 'Tag info'
     required: true
     default: "${{ github.ref }}"
 
