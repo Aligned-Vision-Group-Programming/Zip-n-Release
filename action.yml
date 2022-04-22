@@ -1,0 +1,19 @@
+name: ReturnNames
+
+description: 'Take info from repo and make useable names from it.'
+
+#inputs:
+#  RepoName: 
+#    description: 'Name of the Repo'
+#    required: true  
+
+#outputs:
+#  RepoName: 
+#    description: 'Name of the Repo'
+#    value: "${{ steps.RepoName.outputs._1 }}"
+
+runs:
+  using: "composite"
+
+  steps:
+  - uses: actions/checkout@v3
