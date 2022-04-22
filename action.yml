@@ -4,7 +4,7 @@ description: 'Take info from repo and make useable names from it.'
 
 inputs:
   Filename: 
-    description: 'typically'
+    description: 'Repo name'
     required: true
     default: "${{ github.repository }}"
   Tag: 
@@ -34,7 +34,7 @@ runs:
     uses: rishabhgupta/split-by@v1
     id: TagName
     with:
-      string: "${{ inputs.Filename }}"
+      string: "${{ inputs.Tag }}"
       split-by: "/"
 
   - name: Upload Artifact    
