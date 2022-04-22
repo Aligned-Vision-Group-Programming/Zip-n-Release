@@ -37,16 +37,20 @@ runs:
       string: "${{ inputs.Tag }}"
       split-by: "/"
 
-#  - name: Upload Artifact    
-#    uses: actions/upload-artifact@v2
-#    with:
-#      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
-#      path: "${{ github.workspace }}/Module/**"
-  
-  - name: Compress
-    uses: TonyBogdanov/zip@1.0
+  - name: Archive Release
+    uses: thedoctor0/zip-release@master
     with:
-        args: zip -qq -r ./${{ steps.RepoName.outputs._1 }}-${{ steps.TagName.outputs._2  }}.zip ./Module
+      filename: ".github/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      exclusions: '*.git* .env .github/*'
+      directory: "./Module"
+
+
+  - name: Upload Artifact    
+    uses: actions/upload-artifact@v2
+    with:
+      name: ".github/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      path: "${{ github.workspace }}/.github"
+ 
   
   - uses: ncipollo/release-action@v1
     with:
