@@ -40,7 +40,7 @@ runs:
   - name: Archive Release
     uses: thedoctor0/zip-release@master
     with:
-      filename: ".github/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      filename: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       exclusions: '*.git* .env .github/*'
       directory: "./Module"
 
@@ -48,7 +48,7 @@ runs:
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
-      name: ".github/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      name: "./Module/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/.github"
  
   
