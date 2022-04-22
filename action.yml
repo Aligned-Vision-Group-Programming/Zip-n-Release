@@ -23,7 +23,7 @@ runs:
     uses: thedoctor0/zip-release@master
     with:
       filename: ".github/${{ inputs.Filename }}"
-      path: "Module"
+      path: "./Module/"
       exclusions: '*.git* .env .github/* .github/workflows/*'
 
   - name: Upload Artifact    
