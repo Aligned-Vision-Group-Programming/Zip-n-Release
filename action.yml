@@ -43,6 +43,6 @@ runs:
       name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/Module/**"
   
-  - uses: ncipollo/release-action@v1.10
+  - uses: ncipollo/release-action@v1
     with:
       artifact: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
