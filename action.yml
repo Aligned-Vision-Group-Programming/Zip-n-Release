@@ -2,10 +2,10 @@ name: ReturnNames
 
 description: 'Take info from repo and make useable names from it.'
 
-#inputs:
-#  RepoName: 
-#    description: 'Name of the Repo'
-#    required: true  
+inputs:
+  Filename: 
+    description: 'Name of the ZipFile'
+    required: true  
 
 #outputs:
 #  RepoName: 
@@ -17,3 +17,18 @@ runs:
 
   steps:
   - uses: actions/checkout@v3
+
+  - name: Archive Release
+    uses: thedoctor0/zip-release@master
+    with:
+      filename: ".github/${{ inputs.Filename }}"
+      exclusions: '*.git* .env .github/* LICENSE'
+
+  - name: Upload Artifact    
+    uses: actions/upload-artifact@v2
+    with:
+      name: ${{ needs.MakeNames.outputs.Filename }}
+      path: "${{ github.workspace }}/.github"
+
+
+# - uses: ncipollo/release-action
