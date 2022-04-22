@@ -3,7 +3,7 @@ name: ReturnNames
 description: 'Take info from repo and make useable names from it.'
 
 inputs:
-  Filename: 
+  RepoPath: 
     description: 'Repo name'
     required: true
     default: "${{ github.repository }}"
@@ -27,7 +27,7 @@ runs:
     uses: rishabhgupta/split-by@v1
     id: RepoName
     with:
-      string: "${{ inputs.Filename }}"
+      string: "${{ inputs.RepoPath }}"
       split-by: "/"
 
   - name: GetSplit - Tag
