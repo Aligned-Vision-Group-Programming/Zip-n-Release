@@ -23,7 +23,7 @@ runs:
     uses: thedoctor0/zip-release@master
     with:
       filename: ".github/${{ inputs.Filename }}"
-      exclusions: '*.git* .env .github/* LICENSE'
+      exclusions: '*.git* .env .github/*'
 
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
