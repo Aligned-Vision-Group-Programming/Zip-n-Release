@@ -37,16 +37,16 @@ runs:
       string: "${{ inputs.Tag }}"
       split-by: "/"
 
-  - name: Upload Artifact    
-    uses: actions/upload-artifact@v2
-    with:
-      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
-      path: "${{ github.workspace }}/Module/**"
+#  - name: Upload Artifact    
+#    uses: actions/upload-artifact@v2
+#    with:
+#      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+#      path: "${{ github.workspace }}/Module/**"
   
-  - name: Download Artifact
-    uses: actions/download-artifact@v3
+  - name: Compress
+    uses: TonyBogdanov/zip@1.0
     with:
-      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+        args: zip -qq -r ./${{ steps.RepoName.outputs._1 }}-${{ steps.TagName.outputs._2  }}.zip ./Module
   
   - uses: ncipollo/release-action@v1
     with:
