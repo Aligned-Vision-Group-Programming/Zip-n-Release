@@ -5,7 +5,8 @@ description: 'Take info from repo and make useable names from it.'
 inputs:
   Filename: 
     description: 'Name of the ZipFile'
-    required: true  
+    required: true
+    default: 'Test'
 
 #outputs:
 #  RepoName: 
@@ -27,7 +28,7 @@ runs:
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
-      name: ${{ needs.MakeNames.outputs.Filename }}
+      name: "${{ inputs.Filename }}"
       path: "${{ github.workspace }}/.github"
 
 
