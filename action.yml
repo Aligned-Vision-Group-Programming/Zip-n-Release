@@ -40,7 +40,7 @@ runs:
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
-      name: "${{ steps.RepoName.outputs._1 }}.${{ steps.TagName.outputs._2  }}"
+      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/Module/**"
 
 
