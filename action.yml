@@ -10,7 +10,7 @@ inputs:
   Tag: 
     description: 'Name of the ZipFile'
     required: true
-    default: "${{ github.repository }}"
+    default: "${{ github.ref }}"
 
 #outputs:
 #  RepoName: 
