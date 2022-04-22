@@ -4,8 +4,13 @@ description: 'Take info from repo and make useable names from it.'
 
 inputs:
   Filename: 
+    description: 'typically'
+    required: true
+    default: "${{ github.repository }}"
+  Tag: 
     description: 'Name of the ZipFile'
     required: true
+    default: "${{ github.repository }}"
 
 #outputs:
 #  RepoName: 
