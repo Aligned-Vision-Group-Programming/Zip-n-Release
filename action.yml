@@ -19,18 +19,18 @@ runs:
   steps:
   - uses: actions/checkout@v3
 
-  - name: Archive Release
-    uses: thedoctor0/zip-release@master
-    with:
-      filename: ".github/${{ inputs.Filename }}"
-      path: "./Module/"
-      exclusions: '*.git* .env .github/Workflows/*'
+#  - name: Archive Release
+#    uses: thedoctor0/zip-release@master
+#    with:
+#      filename: ".github/${{ inputs.Filename }}"
+#      path: "./Module/"
+#      exclusions: '*.git* .env .github/Workflows/*'
 
   - name: Upload Artifact    
     uses: actions/upload-artifact@v2
     with:
       name: "${{ inputs.Filename }}"
-      path: "${{ github.workspace }}/.github"
+      path: "${{ github.workspace }}/Module/**"
 
 
 # - uses: ncipollo/release-action
