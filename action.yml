@@ -25,7 +25,7 @@ runs:
       string: "${{ inputs.Filename }}"
       split-by: "/"
 
-- name: GetSplit - Tag
+  - name: GetSplit - Tag
     uses: rishabhgupta/split-by@v1
     id: TagName
     with:
