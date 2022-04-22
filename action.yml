@@ -42,8 +42,11 @@ runs:
     with:
       name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
       path: "${{ github.workspace }}/Module/**"
+  - uses: actions/download-artifact@v3
+    with:
+      name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
   
   - uses: ncipollo/release-action@v1
     with:
-      #artifacts: "${{ github.workspace }}/Module/${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
-      artifacts: "${{ github.workspace }}/Module/**"
+      artifacts: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      artifactErrorsFailBuild: true
