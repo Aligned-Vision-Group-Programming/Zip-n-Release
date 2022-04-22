@@ -45,4 +45,4 @@ runs:
   
   - uses: ncipollo/release-action@v1
     with:
-      artifact: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
+      artifacts: "${{ github.workspace }}/Module/**${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
