@@ -51,9 +51,15 @@ runs:
  #     name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
  #     path: "${{ github.workspace }}/Module"
  
+   - name: Find ZipArchive
+    id: FindZipArchive
+    uses: DovnarAlexander/github-action-file-detection@master
+    with:
+      wildcard: "${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
   
   - uses: ncipollo/release-action@v1
     with:
-      artifacts: "Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
+#      artifacts: "Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
 #      artifacts: "${{ github.workspace }}/Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
+      artifacts: "${{ steps.FindNugetPackage.outputs.found }}"
       artifactErrorsFailBuild: true
