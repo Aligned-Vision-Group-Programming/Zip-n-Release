@@ -61,5 +61,5 @@ runs:
     with:
 #      artifacts: "Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
 #      artifacts: "${{ github.workspace }}/Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
-      artifacts: ${{ steps.FindNugetPackage.outputs.found }}
+      artifacts: "${{ steps.FindZipArchive.outputs.found }}"
       artifactErrorsFailBuild: true
