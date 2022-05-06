@@ -54,6 +54,6 @@ runs:
   
   - uses: ncipollo/release-action@v1
     with:
-      artifacts: "./Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
+      artifacts: "Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
 #      artifacts: "${{ github.workspace }}/Module/${{ steps.RepoName.outputs._1 }}_-_${{ steps.TagName.outputs._2  }}.zip"
       artifactErrorsFailBuild: true
