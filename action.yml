@@ -51,7 +51,7 @@ runs:
  #     name: "${{ steps.RepoName.outputs._1 }} - ${{ steps.TagName.outputs._2  }}"
  #     path: "${{ github.workspace }}/Module"
  
-   - name: Find ZipArchive
+  - name: Find ZipArchive
     id: FindZipArchive
     uses: DovnarAlexander/github-action-file-detection@master
     with:
